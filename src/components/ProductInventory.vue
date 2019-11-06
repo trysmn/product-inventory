@@ -13,12 +13,15 @@ export default {
     name: 'ProductInventory',
     data: () => {
         return {
-            products: [
-                "Boots",
-                "Jacket",
-                "Hiking Socks"
-            ]
+            products: []
         };
+    },
+    created() {
+        fetch('https://api.myjson.com/bins/74l63')
+            .then(response => response.json())
+            .then(json => {
+                this.products = json.products;
+            })
     }
 }
 </script>
