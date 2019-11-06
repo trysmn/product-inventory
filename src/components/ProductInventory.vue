@@ -1,15 +1,23 @@
 <template>
     <div id="product-inventory">
-        <h2>{{ product }} are in stock.</h2>
+        <ul>
+            <li v-bind:key="product" v-for="product in products">
+                {{ product }}
+            </li>
+        </ul>
     </div>
 </template>
 
 <script>
 export default {
-    name: "ProductInventory",
+    name: 'ProductInventory',
     data: () => {
         return {
-            product: "Boots"
+            products: [
+                "Boots",
+                "Jacket",
+                "Hiking Socks"
+            ]
         };
     }
 }
@@ -18,5 +26,6 @@ export default {
 <style scoped>
 #product-inventory {
     text-align: center;
+    list-style-position: inside;
 }
 </style>
